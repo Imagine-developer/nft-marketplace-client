@@ -69,7 +69,7 @@ function Settings({app}): React.ReactElement {
       body: formData
     }
 
-    await fetch('http://35.158.6.155:8000/file/upload', requestOptionsFile)
+    await fetch('https://desolate-inlet-76011.herokuapp.com/file/upload', requestOptionsFile)
   .then(response => response.text())
   .then(data => cookie.set('imgUrl', data))
     }
@@ -78,7 +78,7 @@ function Settings({app}): React.ReactElement {
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({name, email, wallet: cookie.get('wallet'), imgUrl: cookie.get('imgUrl')})
     }
-    await fetch('http://35.158.6.155:8000/user/register', requestOptions)
+    await fetch('https://desolate-inlet-76011.herokuapp.com/user/register', requestOptions)
     .then(response => response.json())
     .then(data => {
     console.log(data)

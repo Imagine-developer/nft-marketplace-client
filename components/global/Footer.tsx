@@ -39,7 +39,7 @@ function Footer(props: Types.AppProps): React.ReactElement {
     utils.$.setStylesFooter();
   }, []);
   const onSubmit = async (data) => {
-    const res = await axios.post('http://35.158.6.155:8000/report' ,{title: data.title, description: data.description, sender: cookie.get('id')})
+    const res = await axios.post('https://desolate-inlet-76011.herokuapp.com/report' ,{title: data.title, description: data.description, sender: cookie.get('id')})
     console.log(res.data)
   }
   return (

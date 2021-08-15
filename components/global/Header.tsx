@@ -128,7 +128,7 @@ function Header(props): React.ReactElement {
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({wallet: accounts[0]})
         }
-        fetch('http://35.158.6.155:8000/user/login', requestOptions)
+        fetch('https://desolate-inlet-76011.herokuapp.com/user/login', requestOptions)
         .then(response => response.json())
         .then(dame => {
           console.log(dame)
@@ -498,7 +498,7 @@ function Header(props): React.ReactElement {
 Header.getInitialProps = async ({req, res}) => {
   /* tslint:disable-next-line */
   if (req.cookies.id){
-    const response = await axios.get(`http://35.158.6.155:8000/user/${req.cookies.id}`)
+    const response = await axios.get(`https://desolate-inlet-76011.herokuapp.com/user/${req.cookies.id}`)
     console.log(response.data)
     return {data: response.data}
   }

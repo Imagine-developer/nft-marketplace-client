@@ -84,7 +84,7 @@ function Marketplace(props): React.ReactElement {
 }
 
 Marketplace.getInitialProps = async (ctx: GetServerSidePropsContext) => {
-  const result = await axios.get('http://localhost:8000/banner')
+  const result = await axios.get('https://desolate-inlet-76011.herokuapp.com/banner')
   return {
     data: {
       banners: result.data,

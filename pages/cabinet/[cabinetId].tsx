@@ -364,7 +364,7 @@ function Cabinet(props): React.ReactElement {
 }
 
 Cabinet.getInitialProps = async ({query}) => {
-  const response = await axios.get(`http://35.158.6.155:8000/user/${query.cabinetId}`)
+  const response = await axios.get(`https://desolate-inlet-76011.herokuapp.com/user/${query.cabinetId}`)
   return {data: response.data}
 };
 

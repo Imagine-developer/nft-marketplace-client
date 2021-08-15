@@ -59,7 +59,7 @@ function FineArt(props: FineArtProps): React.ReactElement {
 }
 
 FineArt.getInitialProps = async (ctx: GetServerSidePropsContext): Promise<FineArtProps> => {
-  const result = await axios.get('http://35.158.6.155:8000/banner')
+  const result = await axios.get('https://desolate-inlet-76011.herokuapp.com/banner')
   return {
     data: {
       banners: result.data,

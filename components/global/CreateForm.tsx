@@ -122,8 +122,8 @@ export default function CreateForm(props: CreateFormProps): React.ReactElement {
       pdf
     )
 
-    const response = await axios.post('http://35.158.6.155:8000/nft/upload', formData)
-    const resPdf = await axios.post('http://35.158.6.155:8000/nft/upload', pdfData)
+    const response = await axios.post('https://desolate-inlet-76011.herokuapp.com/nft/upload', formData)
+    const resPdf = await axios.post('https://desolate-inlet-76011.herokuapp.com/nft/upload', pdfData)
     const ipfsHash = response.data.result.IpfsHash
     const ipfsPdfHash = resPdf.data.result.IpfsHash
     console.log(ipfsHash)
@@ -155,7 +155,7 @@ export default function CreateForm(props: CreateFormProps): React.ReactElement {
   const something = NFT.methods.mapStringOfURI(ipfsHash).call({}, (err, res)=>{
     console.log(`tokenID of URI ${ipfsHash} - ${res}`)
   })
-  const res = await axios.post('http://35.158.6.155:8000/nft/create', {userId: cookie.get('id'), response, data, resPdf})
+  const res = await axios.post('https://desolate-inlet-76011.herokuapp.com/nft/create', {userId: cookie.get('id'), response, data, resPdf})
   console.log(res)
   router.push(`/product/${res.data.result._id}`)
   };

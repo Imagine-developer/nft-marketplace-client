@@ -17,7 +17,7 @@ function ReportModal(props: Types.AppProps): React.ReactElement {
   const [description, setDescription] = useState('')
 
   const handleSubmit = async(e) => {
-    const response = await axios.post('http://35.158.6.155:8000/report', {title, description, sender: cookie.get('id')})
+    const response = await axios.post('https://desolate-inlet-76011.herokuapp.com/report', {title, description, sender: cookie.get('id')})
     console.log(response.data)
     router.push('/')
   }
