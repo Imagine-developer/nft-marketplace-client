@@ -155,7 +155,7 @@ export default function CreateForm(props: CreateFormProps): React.ReactElement {
   const something = NFT.methods.mapStringOfURI(ipfsHash).call({}, (err, res)=>{
     console.log(`tokenID of URI ${ipfsHash} - ${res}`)
   })
-  const res = await axios.post('https://desolate-inlet-76011.herokuapp.com/nft/create', {userId: cookie.get('id'), response, data, resPdf})
+  const res = await axios.post('https://desolate-inlet-76011.herokuapp.com/nft/create', {userId: cookie.get('id'), img: response.data.url, title: data.title, collect: data.collection, royalty: data.royalty, description: data.description, pdf: resPdf.data.url})
   console.log(res)
   router.push(`/product/${res.data.result._id}`)
   };

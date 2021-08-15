@@ -119,12 +119,13 @@ function Home(props: HomeProps): React.ReactElement {
   );
 }
 
-Home.getInitialProps = async (ctx: GetServerSidePropsContext): Promise<HomeProps> => {
+Home.getInitialProps = async ({req, res}) => {
   const result = await axios.get('https://desolate-inlet-76011.herokuapp.com/banner')
   return {
     data: {
       banners: result.data,
     },
+    acc: req.cookies.id
   };
 };
 
