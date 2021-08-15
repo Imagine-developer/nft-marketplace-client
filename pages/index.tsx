@@ -39,7 +39,7 @@ interface HomeProps {
  * @param props
  * @returns
  */
-function Home(props: HomeProps): React.ReactElement {
+function Home(props): React.ReactElement {
   const { data, app } = props;
   const { lang } = app;
   const { banners } = data;
@@ -54,7 +54,7 @@ function Home(props: HomeProps): React.ReactElement {
   }, []);
   return (
     <Theme>
-      <Header app={app} />
+      <Header app={app}/>
       <div className="wrapper">
         <Banner banners={banners} {...app} />
         {/** Секция Fine Art */}
@@ -125,7 +125,6 @@ Home.getInitialProps = async ({req, res}) => {
     data: {
       banners: result.data,
     },
-    acc: req.cookies.id
   };
 };
 

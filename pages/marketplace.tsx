@@ -20,7 +20,7 @@ import * as utils from '../utils';
  * @returns
  */
 function Marketplace(props): React.ReactElement {
-  const { app, data, acc } = props;
+  const { app, data } = props;
   const { banners } = data;
   const { lang } = app;
   const [filterBy, setFilterBy] = useState<number>(1);
@@ -34,7 +34,7 @@ function Marketplace(props): React.ReactElement {
   }, []);
   return (
     <Theme>
-      <Header app={app} {...app} acc={acc}/>
+      <Header app={app} {...app}/>
       <div className="wrapper ">
         <div className="heading center">
           <h1>
@@ -86,7 +86,6 @@ function Marketplace(props): React.ReactElement {
 Marketplace.getInitialProps = async ({req, res}) => {
   const result = await axios.get('https://desolate-inlet-76011.herokuapp.com/banner')
   return {
-    acc: req.cookies.id,
     data: {
       banners: result.data,
     },

@@ -147,7 +147,8 @@ function Header(props): React.ReactElement {
             }
             closeConnectDialog()
             setOpen(false)
-            router.push(`/cabinet/${data.id}`)
+            console.log(data)
+            router.push(`/cabinet/${cookie.get('id')}`)
           } else{
             closeConnectDialog()
             setOpen(true)

@@ -18,7 +18,7 @@ const { WALLET_LOCAL_STORAGE_NAME } = utils.c;
  * @param props
  * @returns
  */
-function Settings({app, acc}): React.ReactElement {
+function Settings({app,}): React.ReactElement {
   const { lang } = app;
   const [headerActive, setHeaderActive] = useState<boolean>(false);
   const [logoActive, setLogoActive] = useState<boolean>(false);
@@ -98,7 +98,7 @@ function Settings({app, acc}): React.ReactElement {
 
   return (
     <Theme>
-      <Header app={app} acc={acc}/>
+      <Header app={app}/>
       <div className="wrapper">
         <div className="content">
           <main className="main settings">
@@ -164,12 +164,6 @@ function Settings({app, acc}): React.ReactElement {
       </div>
     </Theme>
   );
-}
-
-Settings.getInitialProps = async({req, res}) => {
-  return {
-    acc: req.cookies.id
-  }
 }
 
 export default Settings;
