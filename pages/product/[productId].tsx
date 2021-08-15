@@ -161,7 +161,7 @@ function Product({app, data}): React.ReactElement {
 }
 
 Product.getInitialProps = async ({req, res, query}) => {
-  const response = await axios.get(`http://35.158.6.155:8000/nft/${query.productId}`)
+  const response = await axios.get(`https://desolate-inlet-76011.herokuapp.com/nft/${query.productId}`)
   return {data: response.data}
 }
 
