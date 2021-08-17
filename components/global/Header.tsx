@@ -137,6 +137,7 @@ function Header(props): React.ReactElement {
             cookie.set('name', dame.name)
             cookie.set('email', dame.email)
             cookie.set('id', dame.id)
+            cookie.set('verified', dame.verified)
             if (dame.imgUrl){
               fetch(cookie.get('imgUrl'))
     .then(r => r)
@@ -272,6 +273,7 @@ function Header(props): React.ReactElement {
     cookie.set('email', '')
     cookie.set('wallet', '')
     cookie.set('id', '')
+    cookie.set('verified', '')
   }
   return (
     <><header className="header top">
@@ -343,13 +345,14 @@ function Header(props): React.ReactElement {
                             </a>
                           </Link>
                         </li>
-                        <li className="user-toolbar__item">
+                        {cookie.get('verified') === true ? <li className="user-toolbar__item">
                           <Link href="/create">
                             <a role="button" onClick={unHiddenHtml}>
                               <i className="flaticon-letter-x add" /> {lang.userMenu.addNft}
                             </a>
                           </Link>
-                        </li>
+                        </li> : null}
+
                         <li className="user-toolbar__item">
                           <Link href="/settings">
                             <a role="button" onClick={unHiddenHtml}>
