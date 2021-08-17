@@ -139,9 +139,8 @@ function Header(props): React.ReactElement {
             cookie.set('name', dame.name)
             cookie.set('email', dame.email)
             cookie.set('id', dame.id)
-            if (dame.verified){
-              setVerified(true)
-            }
+            cookie.set('verified', dame.verified)
+            console.log(cookie.get('verified'))
             
             if (dame.imgUrl){
               fetch(cookie.get('imgUrl'))
@@ -265,6 +264,10 @@ function Header(props): React.ReactElement {
     coinbase.addEventListener('click', connectToCoinBase);
   }
   useEffect(() => {
+
+    if (cookie.get('verified')){
+      setSome(true)
+    }
     utils.$.setStylesHeader();
     window.addEventListener('scroll', windowScrollHandler);
     return () => {
@@ -278,7 +281,7 @@ function Header(props): React.ReactElement {
     cookie.set('email', '')
     cookie.set('wallet', '')
     cookie.set('id', '')
-    cookie.set('verified', '')
+    cookie.set('verified', false)
   }
   return (
     <><header className="header top">
@@ -350,13 +353,13 @@ function Header(props): React.ReactElement {
                             </a>
                           </Link>
                         </li>
-                        {verified ? <li className="user-toolbar__item">
+                        {cookie.get('verified') === true && <li className="user-toolbar__item">
                           <Link href="/create">
                             <a role="button" onClick={unHiddenHtml}>
                               <i className="flaticon-letter-x add" /> {lang.userMenu.addNft}
                             </a>
                           </Link>
-                        </li> : null}
+                        </li>}
 
                         <li className="user-toolbar__item">
                           <Link href="/settings">
