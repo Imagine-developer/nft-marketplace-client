@@ -61,7 +61,8 @@ interface HeaderProps {
  * @param props
  * @returns
  */
-function Header(props): React.ReactElement {
+function Header(props): React.ReactElement {    
+  const [verified, setVerified] = useState(false)
   const router = useRouter();
   const { app, data} = props;
   const { lang } = app;
@@ -115,6 +116,7 @@ function Header(props): React.ReactElement {
    */
   async function connectWalletsHandler(): Promise<void> {
     // Кнопки подключения и закрытия
+
     const metamask = document.querySelector('#metamask');
     const mew = document.querySelector('#mew');
     const coinbase = document.querySelector('#coinbase');
@@ -137,7 +139,10 @@ function Header(props): React.ReactElement {
             cookie.set('name', dame.name)
             cookie.set('email', dame.email)
             cookie.set('id', dame.id)
-            cookie.set('verified', dame.verified)
+            if (dame.verified){
+              setVerified(true)
+            }
+            
             if (dame.imgUrl){
               fetch(cookie.get('imgUrl'))
     .then(r => r)
@@ -345,7 +350,7 @@ function Header(props): React.ReactElement {
                             </a>
                           </Link>
                         </li>
-                        {cookie.get('verified') === true ? <li className="user-toolbar__item">
+                        {verified ? <li className="user-toolbar__item">
                           <Link href="/create">
                             <a role="button" onClick={unHiddenHtml}>
                               <i className="flaticon-letter-x add" /> {lang.userMenu.addNft}
