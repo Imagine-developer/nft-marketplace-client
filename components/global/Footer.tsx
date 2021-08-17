@@ -41,6 +41,7 @@ function Footer(props: Types.AppProps): React.ReactElement {
   const onSubmit = async (data) => {
     const res = await axios.post('https://desolate-inlet-76011.herokuapp.com/report' ,{title: data.title, description: data.description, sender: cookie.get('id')})
     console.log(res.data)
+    setOpen(false)
   }
   return (
     <div className="footer">

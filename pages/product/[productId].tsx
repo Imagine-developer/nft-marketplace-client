@@ -79,7 +79,7 @@ function Product({app, data}): React.ReactElement {
                   </a>
                 </div> */}
                <div className="product__doc">
-                  <a href={data.pdf} target="_blank">
+                  <a href={data.pdf} target="_blank" rel="noreferrer">
                     <i className="flaticon-file" /> <span>{lang.documents}</span>
                   </a>
                 </div>

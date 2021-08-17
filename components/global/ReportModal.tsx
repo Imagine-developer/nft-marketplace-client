@@ -11,7 +11,7 @@ import type * as Types from '../../types/index.d';
  * @param props
  * @returns
  */
-function ReportModal(props: Types.AppProps): React.ReactElement {
+function ReportModal(props): React.ReactElement {
   const { lang } = props;
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -19,7 +19,7 @@ function ReportModal(props: Types.AppProps): React.ReactElement {
   const handleSubmit = async(e) => {
     const response = await axios.post('https://desolate-inlet-76011.herokuapp.com/report', {title, description, sender: cookie.get('id')})
     console.log(response.data)
-    router.push('/')
+    router.reload()
   }
   return (
     <div className="popup__error popup mfp-hide">

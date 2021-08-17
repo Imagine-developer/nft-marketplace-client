@@ -326,7 +326,7 @@ function Header(props): React.ReactElement {
 
               <div className="header__cover">
                 { cookie.get('id') ? [
-                  <div className="header__user">
+                  <div className="header__user" key='some gang'>
                     <div className="header__user-img">
                       {cookie.get('imgUrl') ? <img src={cookie.get('imgUrl')} alt='avatar'/> : <img src="/img/avatar_0.png" alt="avatar" />}
                       
@@ -370,7 +370,7 @@ function Header(props): React.ReactElement {
                     </div>
                   </div>
                  ] : [
-                  <div className="header__user">
+                  <div className="header__user" key='too much gang'>
                     <a href="#" className="open_connect" onClick={connectWalletsHandler}>
                       <i className="flaticon-wallet" />
                       <span>{lang.wallet}</span>
