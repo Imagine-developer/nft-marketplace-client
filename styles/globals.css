@@ -2481,7 +2481,9 @@ textarea {
 }
 
 .product__block {
-  margin-top: 45px;
+  display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .verified__gold{
@@ -2493,9 +2495,10 @@ textarea {
 .product__image {
   -webkit-box-shadow: 0px 23px 38px 0px rgba(0, 0, 0, 0.31);
   box-shadow: 0px 23px 38px 0px rgba(0, 0, 0, 0.31);
-  left: 20%;
+  flex-direction: column;
   width: 700px;
   height: 700px;
+
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7201,10 +7204,6 @@ a.ui-button:active,
 
   .fineart__overview .products__item-buy {
     margin-top: 30px;
-  }
-
-  .product__block {
-    margin-top: 25px;
   }
 
   .settings__form-file {

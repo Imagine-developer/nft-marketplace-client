@@ -260,6 +260,7 @@ export default function CreateForm(props: CreateFormProps): React.ReactElement {
         <input type="file" id="pdf" accept=".pdf" onChange={handlePdfChange}/>
         <span>{lang.uploadDescription}</span>
       </label>
+      <div>{pdf ? pdf.name: null}</div>
       <div className="create_inputs">
         <div className="create_input">
           <span>{lang.roalty}:</span>

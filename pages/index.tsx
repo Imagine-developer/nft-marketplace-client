@@ -6,6 +6,7 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
+
 import Theme from '../components/Theme';
 import Header from '../components/global/Header';
 import Banner from '../components/global/Banner';
@@ -13,6 +14,7 @@ import StyledSelect from '../components/UI/StyledSelect';
 import MarketplaceItems from '../components/global/MarketplaceItems';
 import FineArtItems from '../components/index/FineArtItems';
 import PopularItems from '../components/index/PopularItems';
+import cookie from 'js-cookie'
 
 import * as utils from '../utils';
 import type * as Types from '../types/index.d';
@@ -43,8 +45,6 @@ function Home(props): React.ReactElement {
   const { data, app } = props;
   const { lang } = app;
   const { banners } = data;
-  console.log(data)
-  
 
   const classes = useStyles();
 
@@ -125,6 +125,7 @@ Home.getInitialProps = async ({req, res}) => {
     data: {
       banners: result.data,
     },
+    
   };
 };
 

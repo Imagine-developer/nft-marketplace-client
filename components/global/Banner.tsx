@@ -23,7 +23,7 @@ export default function Banner(props): React.ReactElement {
         {banners.map((item, index) => {
           return (
             <div key={`Banner ${index}`}>
-              <div className="bunner__item" style={{ backgroundImage: `url(${item.imgUrl})`, backgroundSize: '100%'}}>
+              <div className="bunner__item" style={{ backgroundImage: `url(${item.imgUrl})`, backgroundSize: '100%', minHeight: "360px"}}>
                 <div className="bunner__item-title heading">
                   <h2>{item.title}</h2>
                 </div>

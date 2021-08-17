@@ -54,7 +54,8 @@ function Product({app, data}): React.ReactElement {
               <div className="product__image">
                 <img src={data.img} alt="img" />
                 <div className='verified__gold'>
-                 <img src="/img/verified-gold.png" alt="" /> 
+                  {data.verified ? <img src="/img/verified-gold.png" alt="" /> : null}
+                 
                 </div>
                 
                 <a href={data.img} className="product__image-resize">
@@ -78,7 +79,7 @@ function Product({app, data}): React.ReactElement {
                   </a>
                 </div> */}
                <div className="product__doc">
-                  <a href={data.pdf}>
+                  <a href={data.pdf} target="_blank">
                     <i className="flaticon-file" /> <span>{lang.documents}</span>
                   </a>
                 </div>

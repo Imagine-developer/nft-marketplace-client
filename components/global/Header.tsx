@@ -63,7 +63,7 @@ interface HeaderProps {
  */
 function Header(props): React.ReactElement {
   const router = useRouter();
-  const { app, data } = props;
+  const { app, data} = props;
   const { lang } = app;
   const [searchBy, setSearchBy] = useState<'title' | 'author' | 'collection'>('title');
   const [menuOpened, setMenuOpened] = useState<boolean>(false);
@@ -71,6 +71,7 @@ function Header(props): React.ReactElement {
   let scrollPos = 0;
   const [checked1, setChecked1] = useState(false);
   const [checked2, setChecked2] = useState(false);
+  const [some, setSome] = useState(false)
 
 
   const handleChange1 = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -324,7 +325,7 @@ function Header(props): React.ReactElement {
               </nav>
 
               <div className="header__cover">
-                {cookie.get('name') && cookie.get('email') ? (
+                { cookie.get('id') ? [
                   <div className="header__user">
                     <div className="header__user-img">
                       {cookie.get('imgUrl') ? <img src={cookie.get('imgUrl')} alt='avatar'/> : <img src="/img/avatar_0.png" alt="avatar" />}
@@ -368,14 +369,14 @@ function Header(props): React.ReactElement {
                       </ul>
                     </div>
                   </div>
-                ) : (
-                  <div className="header__connect">
+                 ] : [
+                  <div className="header__user">
                     <a href="#" className="open_connect" onClick={connectWalletsHandler}>
                       <i className="flaticon-wallet" />
                       <span>{lang.wallet}</span>
                     </a>
                   </div>
-                )}
+                 ]}
                 <div className="header__lang">
                   <Select
                     disableUnderline={true}
